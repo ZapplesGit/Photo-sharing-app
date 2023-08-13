@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.main-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+nav {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    background-color: #444;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+
+main {
+    padding: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-item {
+    margin: 10px;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px;
+}
+
+
+input {
+    content: 'Choose File';
+    padding: 8px 12px; 
+    background-color: #333; 
+    color: #fff; 
+    border: 1px solid #333; 
+    border-radius: 5px; 
+    margin: 10px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Adjust the width of the image and the image-description */
+.image-container img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto;
+    max-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-description {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    width: 280px; /* Set the width to match the image width */
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        padding: 6px 10px;
+    }
+
+    .image-gallery {
+        display: block; /* Show images in a single column on small screens */
+    }
+
+    .image-item {
+        margin: 10px auto; /* Center image items on small screens */
+    }
+}
