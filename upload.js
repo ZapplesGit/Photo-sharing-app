@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add an event listener to the description textarea to count the characters
     descriptionInput.addEventListener("input", function () {
-        const maxDescriptionChars = 200; // Replace with your desired maximum character count
+        const maxDescriptionChars = 300; // Replace with your desired maximum character count
         const description = this.value;
 
         if (description.length > maxDescriptionChars) {

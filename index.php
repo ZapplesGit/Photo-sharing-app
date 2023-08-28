@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    // Generate a unique identifier
+    $user_id = uniqid();
+    // Store the identifier in a session for future visits
+    $_SESSION['user_id'] = $user_id;
+} else {
+    $user_id = $_SESSION['user_id'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +24,7 @@
 <body>
     <header>
         <h1>Tech Expo</h1>
+        <p>Your unique user ID: <?php echo $user_id; ?></p>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>

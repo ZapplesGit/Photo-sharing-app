@@ -1,10 +1,9 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Replace with your MySQL username
-$password = ""; // Replace with your MySQL password
-$dbname = "gallery_db"; // Replace with your database name
+$username = "root";
+$password = "";
+$dbname = "gallery_db";
 
-// Create a connection to MySQL
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -18,11 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["image"])) {
     $file_name = $_FILES["image"]["name"];
     $file_tmp = $_FILES["image"]["tmp_name"];
 
-    // Move the uploaded image to the server's images folder
     $upload_path = "images/" . $file_name;
     move_uploaded_file($file_tmp, $upload_path);
 
-    // Insert image details into the database
     $sql = "INSERT INTO images (filename, title, description, uploaded_at) VALUES ('$file_name', '$title', '$description', NOW())";
 
     if ($conn->query($sql) === TRUE) {

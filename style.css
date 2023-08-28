@@ -114,9 +114,8 @@ input {
     padding: 20px;
 }
 
-/* Adjust the width of the image and the image-description */
 .image-container img {
-    max-width: 100%; /* Make the image responsive */
+    max-width: 100%;
     height: auto;
     max-height: 300px;
     border: 1px solid #ddd;
@@ -131,7 +130,7 @@ input {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 5px;
-    width: 280px; /* Set the width to match the image width */
+    width: 280px;
     word-wrap: break-word;
 }
 
@@ -145,10 +144,10 @@ input {
     }
 
     .image-gallery {
-        display: block; /* Show images in a single column on small screens */
+        display: block;
     }
 
     .image-item {
-        margin: 10px auto; /* Center image items on small screens */
+        margin: 10px auto;
     }
 }
