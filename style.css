@@ -112,6 +112,7 @@ input {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    position: relative;
 }
 
 .image-container img {
@@ -133,6 +134,26 @@ input {
     width: 280px;
     word-wrap: break-word;
 }
+
+.delete-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 14px;
+  display: none;
+}
+
+.image-container:hover .delete-button {
+  display: inline;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
     header h1 {

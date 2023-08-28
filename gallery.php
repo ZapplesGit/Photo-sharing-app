@@ -22,7 +22,6 @@ $result = $conn->query($sql);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +35,6 @@ $result = $conn->query($sql);
 <body>
     <header>
         <h1>Tech Expo</h1>
-        <p>Your unique user ID: <?php echo $user_id; ?></p>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -53,7 +51,12 @@ $result = $conn->query($sql);
                 $image_path = "images/" . $row["filename"];
                 $image_id = $row["id"];
                 $likes = $row["likes"];
+                $uploader_id = $row["uploader_id"];
+                $user_id = $_SESSION['user_id'];
                 echo '<div class="image-container">';
+                if ($uploader_id === $user_id) {
+                    echo '<a class="delete-button" href="delete_image.php?image_id=' . $image_id . '">Delete</a>';
+                }
                 echo '<img src="' . $image_path . '" alt="' . $row["title"] . '" width="300">';
                 echo '<div class="image-description">';
                 echo '<h3>' . $row["title"] . '</h3>';
@@ -72,6 +75,7 @@ $result = $conn->query($sql);
     </main>
     <footer>
         <p>Website by Aidan Gould-Pretorius</p>
+        <p>Your unique user ID: <?php echo $user_id; ?></p>
     </footer>
 </body>
 

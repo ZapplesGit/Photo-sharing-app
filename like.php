@@ -24,7 +24,6 @@ $userId = $user_id;
 
 $currentTime = time();
 
-// Check if the user has liked within the time period
 $lastLikedTime = $_SESSION['last_liked_time'] ?? 0;
 
 if ($currentTime - $lastLikedTime < $timePeriod) {

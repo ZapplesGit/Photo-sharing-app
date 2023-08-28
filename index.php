@@ -24,10 +24,9 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <header>
         <h1>Tech Expo</h1>
-        <p>Your unique user ID: <?php echo $user_id; ?></p>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="upload.html">Upload</a></li>
             </ul>
@@ -35,18 +34,19 @@ if (!isset($_SESSION['user_id'])) {
     </header>
 
     <main>
-        <h2 class="main-title">Tech Expo 2023<br></h2>
+        <h2 class="main-title">Image Sharing App<br></h2>
         <h3>Aidan Gould-Pretorius</h3>
 
         <section class="image-gallery">
             <div class="image-container">
-                <img src="\placeholders\baconburger.png" alt="Image 1">
+                <img src="\placeholders\chocolate cake.jfif" alt="Image 1">
             </div>
         </section>
     </main>
 
     <footer>
         <p>Website by Aidan Gould-Pretorius</p>
+        <p>Your unique user ID: <?php echo $user_id; ?></p>
     </footer>
 </body>
 

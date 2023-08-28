@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -20,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["image"])) {
     $upload_path = "images/" . $file_name;
     move_uploaded_file($file_tmp, $upload_path);
 
-    $sql = "INSERT INTO images (filename, title, description, uploaded_at) VALUES ('$file_name', '$title', '$description', NOW())";
+    $sql = "INSERT INTO images (filename, title, description, uploaded_at, uploader_id) VALUES ('$file_name', '$title', '$description', NOW(), '$user_id')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Image uploaded successfully!";
