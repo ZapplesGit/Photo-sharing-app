@@ -23,16 +23,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["image"])) {
     $description = $_POST["description"];
     $file_name = $_FILES["image"]["name"];
     $file_tmp = $_FILES["image"]["tmp_name"];
+    $file_size = $_FILES["image"]["size"]; 
 
-    $upload_path = "images/" . $file_name;
-    move_uploaded_file($file_tmp, $upload_path);
+    $max_file_size = 5 * 1024 * 1024; // 5MB file size limit
 
-    $sql = "INSERT INTO images (filename, title, description, uploaded_at, uploader_id) VALUES ('$file_name', '$title', '$description', NOW(), '$user_id')";
+    if ($file_size <= $max_file_size) {
+        $upload_path = "images/" . $file_name;
+        move_uploaded_file($file_tmp, $upload_path);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Image uploaded successfully!";
+        $sql = "INSERT INTO images (filename, title, description, uploaded_at, uploader_id) VALUES ('$file_name', '$title', '$description', NOW(), '$user_id')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Image uploaded successfully!";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: The uploaded image exceeds the maximum file size limit of 5MB.";
     }
 }
 

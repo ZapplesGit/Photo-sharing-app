@@ -44,10 +44,10 @@ if (!isset($_SESSION['user_id'])) {
         </section>
     </main>
 
-    <footer>
+    <footer style="position: fixed; bottom: 0; width: 100%;">
         <p>Website by Aidan Gould-Pretorius</p>
-        <p>Your unique user ID: <?php echo $user_id; ?></p>
     </footer>
+    
 </body>
 
 </html>

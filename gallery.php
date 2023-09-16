@@ -1,37 +1,34 @@
 <?php
-
 session_start();
-
-if (isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
+    // Generate a unique identifier
+    $user_id = uniqid();
+    // Store the identifier in a session for future visits
+    $_SESSION['user_id'] = $user_id;
+} else {
     $user_id = $_SESSION['user_id'];
 }
-
+// Connect to MySql, or display an error
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "gallery_db";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $sql = "SELECT * FROM images ORDER BY uploaded_at DESC";
 $result = $conn->query($sql);
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Expo</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <h1>Tech Expo</h1>
@@ -43,20 +40,21 @@ $result = $conn->query($sql);
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="image-gallery">
+            <!-- Displays images in a grid!-->
             <?php
             while ($row = $result->fetch_assoc()) {
+                // Fetches the properties of the image from the database
                 $image_path = "images/" . $row["filename"];
                 $image_id = $row["id"];
                 $likes = $row["likes"];
                 $uploader_id = $row["uploader_id"];
                 $user_id = $_SESSION['user_id'];
                 echo '<div class="image-container">';
+                // Displays the delete button, if the user ID is the same as the uploader of the image
                 if ($uploader_id === $user_id) {
-                    echo '<a class="delete-button" href="delete_image.php?image_id=' . $image_id . '">Delete</a>';
-                }
+                    echo '<a class="delete-button" href="delete_image.php?image_id=' . $image_id . '">Delete</a>';}
                 echo '<img src="' . $image_path . '" alt="' . $row["title"] . '" width="300">';
                 echo '<div class="image-description">';
                 echo '<h3>' . $row["title"] . '</h3>';

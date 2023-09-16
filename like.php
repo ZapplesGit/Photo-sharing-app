@@ -17,7 +17,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Implement rate limit
 $rateLimit = 1; 
 $timePeriod = 10; 
 $userId = $user_id;
