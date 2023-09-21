@@ -27,6 +27,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Expo</title>
+    <link rel="icon" type="image/png" href="\placeholders\chocolate cake compressed.jfif"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +37,7 @@ $result = $conn->query($sql);
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="upload.html">Upload</a></li>
+                <li><a href="upload-image.html">Upload</a></li>
             </ul>
         </nav>
     </header>

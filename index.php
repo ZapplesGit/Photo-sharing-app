@@ -18,6 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Expo</title>
+    <link rel="icon" type="image/png" href="\placeholders\chocolate cake compressed.jfif"/>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,18 +29,24 @@ if (!isset($_SESSION['user_id'])) {
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="upload.html">Upload</a></li>
+                <li><a href="upload-image.html">Upload</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <h2 class="main-title">Image Sharing App<br></h2>
-        <h3>Aidan Gould-Pretorius</h3>
+        <h3>Hover on the cake for info!</h3>
 
         <section class="image-gallery">
-            <div class="image-container">
-                <img src="\placeholders\chocolate cake.jfif" alt="Image 1">
+            <div class="home-image-container">
+                <img src="\placeholders\chocolate cake compressed.jfif" alt="Image 1">
+                <div class="image-info">
+                    <p>Welcome to the Tech Expo image sharing app! Get started by checking out the Gallery page, and liking and image. Be careful, though - 
+                        you may only like an image once per 10 seconds! Alternatively, head over to the Upload page and contribute to the site with your own
+                        image to share, complete with a title and description. Just make sure your image is below 5MB and is a supported file type!
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -47,7 +54,6 @@ if (!isset($_SESSION['user_id'])) {
     <footer style="position: fixed; bottom: 0; width: 100%;">
         <p>Website by Aidan Gould-Pretorius</p>
     </footer>
-    
 </body>
 
 </html>
